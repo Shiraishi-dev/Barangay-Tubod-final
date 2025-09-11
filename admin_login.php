@@ -18,7 +18,7 @@ include 'db_connection.php';
     </header>
     <div class="login-container">
         <div class="login-box"> 
-            <h1>Welcome!</h1>
+            <h1>Welcome Admin!</h1>
 
             <!-- Show error message -->
             <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
@@ -32,8 +32,8 @@ include 'db_connection.php';
             </form>
 
             <br>
-            <p>Don't have an account? <a href="register.php">Sign Up</a></p> <br>
-            <a href="admin_login.php">Admin login</a>
+            <p>Don't have an account? <a href="admin_register.php">Sign Up</a></p> <br>
+            <a href="login.php">User login</a>
         </div>
         <div class="image-container"></div>
     </div>

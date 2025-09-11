@@ -1,8 +1,10 @@
 <?php
+// Start session
 session_start();
 
 // Include database connection
 include 'db_connection.php';
+include 'login-checker.php';
 
 // Query the events
 $sql = "SELECT * FROM events ORDER BY id DESC";
@@ -25,7 +27,15 @@ $result = $conn->query($sql);
             <a href="">VOLUNTEER</a>
             <a href="">DONATION</a>
             <a href="">EVENTS</a>
-            <button><a href="login.php">JOIN NOW</a></button>
+
+            <?php if(isset($_SESSION['username'])): ?>
+                <span class="welcome-msg">
+                    Welcome, <?= htmlspecialchars($_SESSION['first_name'] . " " . $_SESSION['last_name']); ?>!
+                </span>
+                <button><a href="logout.php">LOGOUT</a></button>
+            <?php else: ?>
+                <button><a href="login.php">JOIN NOW</a></button>
+            <?php endif; ?>
         </nav>
     </header>
 

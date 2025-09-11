@@ -1,6 +1,6 @@
 <?php 
 include 'db_connection.php';
-include 'register_function.php';
+include 'register_function_admin.php';
 $error = "";
 $success = ""; 
 ?>
@@ -39,6 +39,8 @@ $success = "";
                 <input type="text" name="middle_name" placeholder="Middlename">
                 <p>Lastname</p>
                 <input type="text" name="last_name" placeholder="Lastname" required>
+                <p>ID number</p>
+                <input type="text" name="id_number" placeholder="Email" required>
                 <p>Email</p>
                 <input type="email" name="email" placeholder="Email" required>
                 <p>Mobile Number</p>
@@ -51,7 +53,7 @@ $success = "";
             </form>
 
             <p>Already have an account? <a href="login.php">Login</a></p> <br>
-            <a href="admin_login.php">Admin login</a>
+            <a href="login.php">User login</a>
         </div>
         <div class="image-container"></div>
     </div>

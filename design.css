@@ -1,158 +1,137 @@
+/* ---------------- NAVBAR ---------------- */
 .navbar {
     display: flex;
     justify-content: right; 
     align-items: center;
     margin-right: 30px;
     margin-top: 20px;
-    gap: 95px;
+    gap: 30px; /* reduce gap for better spacing */
     padding: 25px 40px;     
-               
+}
+
+.navbar .welcome-msg {
+    font-weight: bold;
+    color: #2c3e50; /* dark navy */
+    margin-right: 10px;
 }
 .navbar a {
     text-decoration: none;
     color: black;
     padding: 8px 16px;
-    font-family: "Inter", "san-serif";
-
+    font-family: "Inter", sans-serif;
 }
 .navbar button {
-    padding: 8px 16px;
+    padding: 10px 15px;
     background-color: #B9B28A;
     border: none;
-    padding: 10px 15px;
     border-radius: 10px;
-    
-
 }
 .navbar button a {
     text-decoration: none;
-    font-family: "Inter", "san-serif";
+    font-family: "Inter", sans-serif;
     font-size: 15px;
     font-weight: normal;
+    color: black;
+}
+.navbar img {
+    margin-right: auto; /* Pushes the logo to the far left */
 }
 
-
+/* ---------------- HERO SECTION ---------------- */
 h1 {
     margin-top: 150px;
     text-align: center;
     font-size: 70px;
-    font-family: "Inria Serif", "serif";
+    font-family: "Inria Serif", serif;
     margin-bottom: 0px;
 }
-
 h2 {
     margin-top: 5px;
     text-align: center;
     font-size: 47px;
-    font-family: "Inria Serif", "serif";
+    font-family: "Inria Serif", serif;
 }
-
 h3 {
     text-align: center;
-    font-family: "Inter", "san-serif";
+    font-family: "Inter", sans-serif;
     font-weight: normal;
 }
-
-
 .image-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+.image-container img {
+    width: 80%;
+    max-width: 2000px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* ---------------- VOLUNTEER SECTION ---------------- */
 .volunteer {
     display: flex;
     justify-content: space-between;
-    align-items: center;   /* center text + image vertically */
+    align-items: center;
     gap: 40px;
     padding: 40px;
     margin-top: 150px;
     margin-bottom: 50px;
-    border-bottom: 2px solid   black;
     border-top: 2px solid black;
-
+    border-bottom: 2px solid black;
 }
-
-/* Left column: all text */
 .volunteer-text {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-
-/* Headings */
-.quotes-section h1 {
-    margin-top: 0;  /* removed huge top margin */
-    font-size: 80px;
+.volunteer-text h1 {
+    font-size: 60px;
     font-family: "Inria Serif", serif;
-    text-align: left;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.quotes-section h2 {
-    font-size: 80px;
-    font-family: "Inria Serif", serif;
-    font-weight: normal;
-    margin-bottom: 40px;
-    text-align: left;
-    line-height: 1.2;
-}
-
-/* Paragraphs */
-.volunteer-sentence {
-    font-family: "Inria Serif", serif;
-    font-size: 30px;
-    font-weight: normal;
-    margin-bottom: 40px;
-    line-height: 1.2;
-    text-align: left;
-}
-
-.volunteer-sentence p {
     margin-bottom: 10px;
 }
-
-/* Button */
-.button-volunteer button {
+.volunteer-text h2 {
+    font-size: 50px;
+    font-family: "Inria Serif", serif;
+    margin-bottom: 20px;
+}
+.volunteer-text p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+.volunteer-text button {
     background-color: #9CAFAA;
     border: none;
-    padding: 20px 35px;
+    padding: 15px 30px;
     font-family: "Inter", sans-serif;
-    font-size: large;
+    font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
-
-.button-volunteer button:hover {
+.volunteer-text button:hover {
     background-color: #7f9490;
 }
-
-.button-volunteer a {
+.volunteer-text button a {
     text-decoration: none;
     color: black;
 }
-
-/* Right column: image */
 .image-volunteer {
     flex: 1;
     max-width: 700px;
     margin-right: 100px;
 }
-
 .image-volunteer img {
     width: 100%;
     border-radius: 40px 5px 40px 5px;
     display: block;
 }
 
-
-
-/* donation section */
-
-
+/* ---------------- DONATION SECTION ---------------- */
 .donation {
     display: flex;
     justify-content: space-between;
@@ -161,81 +140,123 @@ h3 {
     padding: 40px;
     margin-top: 70px;
     margin-bottom: 50px;
-    border-bottom: 2px solid   black;
-
+    border-bottom: 2px solid black;
 }
-
-/* Left column: all text */
 .donation-text {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-
-/* Headings */
-.donation-quotes-section h1 {
-    margin-top: 0;  
-    font-size: 60px;
+.donation-text h1 {
+    font-size: 50px;
     font-family: "Inria Serif", serif;
-    text-align: left;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.donation-quotes-section h2 {
-    font-size: 60px;
-    font-family: "Inria Serif", serif;
-    font-weight: normal;
-    margin-bottom: 40px;
-    text-align: left;
-    line-height: 1.2;
-}
-
-/* Paragraphs */
-.donation-sentence {
-    font-family: "Inria Serif", serif;
-    font-size: 30px;
-    font-weight: normal;
-    margin-bottom: 40px;
-    line-height: 1.2;
-    text-align: left;
-}
-
-.donation-sentence p {
     margin-bottom: 10px;
 }
-
-/* Button */
-.button-donation button {
+.donation-text h2 {
+    font-size: 40px;
+    font-family: "Inria Serif", serif;
+    margin-bottom: 20px;
+}
+.donation-text p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+.donation-text button {
     background-color: #9CAFAA;
     border: none;
-    padding: 20px 35px;
+    padding: 15px 30px;
     font-family: "Inter", sans-serif;
-    font-size: large;
+    font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
-
-.button-donation button:hover {
+.donation-text button:hover {
     background-color: #7f9490;
 }
-
-.button-donation a {
+.donation-text button a {
     text-decoration: none;
     color: black;
 }
-
-/* Right column: image */
 .image-donation {
     flex: 1;
     max-width: 700px;
-    margin-right: 100px;
+    margin-left: 100px;
 }
-
 .image-donation img {
     width: 100%;
     border-radius: 40px 5px 40px 5px;
     display: block;
+}
+
+/* ---------------- EVENTS SECTION ---------------- */
+.events-text h1 {
+    text-align: center;
+    font-family: "Inria Serif", serif;
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.events {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border-bottom: solid 2px black;
+}
+.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.event-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.event-card:hover {
+    transform: translateY(-5px);
+}
+.event-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.event-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.event-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.event-card button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2c7efb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.event-card button:hover {
+    background: #1a5ed6;
+}
+.event-card button a {
+    text-decoration: none;
+    color: white;
 }

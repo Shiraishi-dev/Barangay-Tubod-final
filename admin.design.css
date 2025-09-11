@@ -89,3 +89,96 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+
+
+
+/* admin-dashboard.css */
+
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-add {
+    background: green;
+}
+
+.btn-edit {
+    background: orange;
+}
+
+.btn-delete {
+    background: red;
+}
+
+.btn-view {
+    background: blue;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.welcome {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-logout {
+    padding: 6px 12px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+    padding: 8px 16px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

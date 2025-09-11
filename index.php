@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Barangay Tubod</title>
+</head>
+<body>
+    <div id="top">  
+    <header>
+        <nav class="navbar">
+            <img src="logo.png" alt="">
+            <a href="">HOME</a>
+            <a href="">VOLUNTEER</a>
+            <a href="">DONATION</a>
+            <a href="">EVENTS</a>
+            <button class=""><a href="">JOIN NOW</a></button>
+        </nav>
+    </header>
+    <h1>Stronger barangay through giving</h1>
+    <h2>and serving</h2>
+    <h3>Be part of the change! Support our community events by giving and volunteering.</h3>
+    <div class="image-container">
+    <img src="Top1.png" class="image" alt="">
+    </div>
+    </div>
+
+    <div class="volunteer">
+    <div class="volunteer-text">
+        <div class="quotes-section">
+            <h1>Serve with heart,</h1>
+            <h2>volunteer with pride</h2>
+        </div>
+
+        <div class="volunteer-sentence">
+            <p>Be a volunteer today lend your time, share your skills,</p>
+            <p>and help make our barangay events more meaningful</p>
+            <p>for everyone.</p>
+        </div>
+
+        <div class="button-volunteer">
+            <button>
+                <a href="">VOLUNTEER NOW</a>
+            </button>
+        </div>
+    </div>
+    <div class="image-volunteer">
+        <img src="volunteer.jpg" alt="Volunteer helping community">
+    </div>
+    </div>
+        <div class="donation">
+        <div class="vdonation-text">
+            <div class="donation-quotes-section">
+                <h1>Your generosity is the</h1>
+                <h2>heartbeat of our community.</h2>
+            </div>
+
+            <div class="donation-sentence">
+                <p>Support our community by donating money, food,</p>
+                <p>or any resources that can bring hope and help to</p>
+                <p>those in need.</p>
+            </div>
+
+            <div class="button-donation">
+                <button>
+                    <a href="">DONATE NOW</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="image-donation">
+            <img src="donation.png" alt="Volunteer helping community">
+        </div>
+    </div>
+
+</body>
+</html>

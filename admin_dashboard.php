@@ -38,6 +38,8 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
             <th>Title</th>
             <th>Description</th>
             <th>Image</th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Volunteers</th>
             <th>Donors</th>
             <th>Actions</th>
@@ -48,6 +50,8 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
             <td><?php echo $row['title']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td><img src="uploads/<?php echo $row['image']; ?>" width="100"></td>
+            <td><?php echo $row['start_date']; ?></td>
+            <td><?php echo $row['end_date']; ?></td>
             <td>
                 <a href="view_volunteers.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
             </td>

@@ -2,6 +2,7 @@
 session_start();
 include 'db_connection.php';
 
+// Only allow admins
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     header("Location: login.php");
     exit;
@@ -10,20 +11,29 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    
-    // Handle image upload
-    $imageName = $_FILES['image']['name'];
-    $targetDir = "uploads/";
-    $targetFile = $targetDir . basename($imageName);
-    move_uploaded_file($_FILES['image']['tmp_name'], $targetFile);
 
-    // Generate links
-    $nextId = $conn->insert_id + 1;
-    $join_link = "join.php?id=" . $nextId;
-    $donate_link = "donate.php?id=" . $nextId;
+    // Handle image upload safely
+    if (!empty($_FILES['image']['name'])) {
+        $imageTmp = $_FILES['image']['tmp_name'];
+        $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $imageName = uniqid('event_', true) . '.' . $ext; // unique filename
+        $targetDir = "uploads/";
 
-    $stmt = $conn->prepare("INSERT INTO events (title, description, image, join_link, donate_link) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $title, $description, $imageName, $join_link, $donate_link);
+        // Create folder if it doesn't exist
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
+
+        if (!move_uploaded_file($imageTmp, $targetDir . $imageName)) {
+            die("Error uploading the image.");
+        }
+    } else {
+        $imageName = null; // optional, if no image uploaded
+    }
+
+    // Insert into events table
+    $stmt = $conn->prepare("INSERT INTO events (title, description, image) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $title, $description, $imageName);
     $stmt->execute();
 
     header("Location: admin_dashboard.php");

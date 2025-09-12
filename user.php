@@ -86,8 +86,8 @@ $result = $conn->query($sql);
                         <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                         <h3><?= htmlspecialchars($row['title']) ?></h3>
                         <p><?= htmlspecialchars($row['description']) ?></p>
-                        <button><a href="<?= htmlspecialchars($row['join_link']) ?>">JOIN NOW</a></button>
-                        <button><a href="<?= htmlspecialchars($row['donate_link']) ?>">DONATE NOW</a></button>
+                        <button><a href="">JOIN NOW</a></button>
+                        <button><a href="">DONATE NOW</a></button>
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>

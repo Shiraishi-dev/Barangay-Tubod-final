@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name   = trim($_POST['first_name'] ?? '');
     $middle_name  = trim($_POST['middle_name'] ?? '');
     $last_name    = trim($_POST['last_name'] ?? '');
+    $id_number   = trim($_POST['id_number'] ?? '');
     $email        = trim($_POST['email'] ?? '');
     $mobile       = trim($_POST['mobile_number'] ?? '');
     $username     = trim($_POST['username'] ?? '');
@@ -40,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // Insert new user
                 $insert = $conn->prepare("INSERT INTO users_info 
-                    (first_name, middle_name, last_name, email, mobile_number, username, password, user_type)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    (first_name, middle_name, last_name, id_number, email, mobile_number, username, password, user_type)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 if (!$insert) {
                     $error = "Database error (prepare insert): " . $conn->error;
                 } else {
-                    $insert->bind_param("ssssssss", $first_name, $middle_name, $last_name, $email, $mobile, $username, $hashed_password, $user_type);
+                    $insert->bind_param("sssssssss", $first_name, $middle_name, $last_name, $id_number, $email, $mobile, $username, $hashed_password, $user_type);
                     if ($insert->execute()) {
                         // Alert + redirect
                         echo "<script>

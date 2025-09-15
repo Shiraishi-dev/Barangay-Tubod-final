@@ -9,6 +9,10 @@ include 'login-checker.php';
 // Query the events
 $sql = "SELECT * FROM events ORDER BY id DESC";
 $result = $conn->query($sql);
+
+// Query the news
+$sql_news = "SELECT * FROM news ORDER BY created_at DESC";
+$result_news = $conn->query($sql_news);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +31,7 @@ $result = $conn->query($sql);
             <a href="">VOLUNTEER</a>
             <a href="">DONATION</a>
             <a href="">EVENTS</a>
+            <a href="">NEWS</a>
 
             <?php if(isset($_SESSION['username'])): ?>
                 <span class="welcome-msg">
@@ -92,6 +97,30 @@ $result = $conn->query($sql);
                 <?php endwhile; ?>
             <?php else: ?>
                 <p>No events available at the moment.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="news-text">
+        <h1>Latest News & Updates</h1>
+    </div>
+
+    <div class="news">
+        <div class="news-container">
+            <?php if ($result_news->num_rows > 0): ?>
+                <?php while($news = $result_news->fetch_assoc()): ?>
+                    <div class="news-card">
+                        <?php if(!empty($news['image'])): ?>
+                            <img src="<?= htmlspecialchars($news['image']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
+                        <?php endif; ?>
+                        <h3><?= htmlspecialchars($news['title']) ?></h3>
+                        <p><?= nl2br(htmlspecialchars(substr($news['content'], 0, 150))) ?>...</p>
+                        <a href="view_news.php?id=<?= $news['id'] ?>" class="btn-readmore">Read More</a>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>No news available at the moment.</p>
             <?php endif; ?>
         </div>
     </div>

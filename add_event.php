@@ -11,6 +11,8 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $start_date = $_POST['start_date'];
+    $end_date = $_POST['end_date']; 
 
     // Handle image upload safely
     if (!empty($_FILES['image']['name'])) {
@@ -32,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert into events table
-    $stmt = $conn->prepare("INSERT INTO events (title, description, image) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $title, $description, $imageName);
+    $stmt = $conn->prepare("INSERT INTO events (title, description, image, start_date, end_date) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $title, $description, $imageName, $start_date, $end_date);
     $stmt->execute();
 
     header("Location: admin_dashboard.php");
@@ -52,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Title: <input type="text" name="title" required></p>
         <p>Description: <textarea name="description" required></textarea></p>
         <p>Image: <input type="file" name="image" required></p>
+        <p>Start Date: <input type="date" name="start_date" required></p>
+        <p>End Date: <input type="date" name="end_date" required></p>
         <button type="submit">Add Event</button>
     </form>
     <br>

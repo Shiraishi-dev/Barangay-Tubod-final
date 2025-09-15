@@ -29,6 +29,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
             <button type="submit" class="btn-logout">LOGOUT</button>
         </form>
     </div>
+    <a href="admin_news_dashboard.php" class="btn btn-add">Manage News</a>
     <h1>Admin Dashboard - Manage Events</h1>
     <a href="add_event.php" class="btn btn-add">+ Add New Event</a>
     <br><br>

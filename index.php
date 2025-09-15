@@ -7,7 +7,13 @@ include 'db_connection.php';
 // Query the events
 $sql = "SELECT * FROM events ORDER BY id DESC";
 $result = $conn->query($sql);
+
+
+// Query the news
+$sql_news = "SELECT * FROM news ORDER BY created_at DESC";
+$result_news = $conn->query($sql_news);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,12 +82,36 @@ $result = $conn->query($sql);
                         <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                         <h3><?= htmlspecialchars($row['title']) ?></h3>
                         <p><?= htmlspecialchars($row['description']) ?></p>
-                        <button><a href="<?= htmlspecialchars($row['join_link']) ?>">JOIN NOW</a></button>
-                        <button><a href="<?= htmlspecialchars($row['donate_link']) ?>">DONATE NOW</a></button>
+                        <button>JOIN NOW</a></button>
+                        <button>DONATE NOW</a></button>
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <p>No events available at the moment.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+     <!-- News Section -->
+    <div class="news-text">
+        <h1>Latest News & Updates</h1>
+    </div>
+
+    <div class="events">
+        <div class="event-container">
+            <?php if ($result_news->num_rows > 0): ?>
+                <?php while($news = $result_news->fetch_assoc()): ?>
+                    <div class="event-card">
+                        <?php if(!empty($news['image'])): ?>
+                            <img src="<?= htmlspecialchars($news['image']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
+                        <?php endif; ?>
+                        <h3><?= htmlspecialchars($news['title']) ?></h3>
+                        <p><?= nl2br(htmlspecialchars(substr($news['content'], 0, 150))) ?>...</p>
+                        <a href="view_news.php?id=<?= $news['id'] ?>" class="btn-readmore">Read More</a>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>No news available at the moment.</p>
             <?php endif; ?>
         </div>
     </div>

@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
+}
+
+
+/* navbar styles */
+
+nav {
+    grid-area: navbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    height: 50px;
+    margin: 10px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0 10px;
+}
+
+
+/* sidebar styles */
+
+aside {
+    grid-area: sidebar;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all sides */
+    padding: 32px 16px;         /* Add space inside the sidebar */
+    background: #fff;           /* White background for contrast */
+    border-radius: 16px;        /* Rounded corners */
+    margin: 24px 0 24px 24px;
+}
+
+aside img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+
+aside div {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+aside div h2 {
+    margin: 10px 0 5px 0;
+}
+
+aside div p {
+    margin-top: -5px;
+}
+
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 20px;
+}
+
+aside ul li {
+    cursor: pointer;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* main content styles */
+
+
+main {
+    grid-area: main;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all sides */
+    padding: 32px 18px;         /* Add space inside the main content */
+    background: #fff;           /* White background for contrast */
+    border-radius: 16px;        /* Rounded corners */
+    margin: 24px 24px 24px 15px;
+}
+
+/* start of admin dashboard styles */
+
+.dashboard_reports {
+    display: flex;
+    gap: 5px; /* optional: adds spacing between items */
+    justify-content: space-around; /* or use space-between, center, etc. */
+    align-items: center; /* aligns items vertically */
+    border-radius: 12px; /* optional: rounded corners for the container */
+}
+
+.dashboard_reports > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    /* aligns children (like <p>) to the left */
+    padding: 50px 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.dashboard_reports > div p {
+    margin: 5px 0; /* adds space between the <p> elements */
+    font-size: 18px; /* optional: increases font size for better readability */
+    text-align: left;
+    color: gray;
+    opacity: 0.8;
+}
+
+
+.dashboard_reports > div h3 {
+    font-size: 30px; /* larger font size for the number */
+    margin: 10px 0 0 0;
+    color:#6D94C5;
+    font-weight: lighter;
+}
+
+
+.graph_reports {
+  display: flex;
+  gap: 20px; /* optional spacing between items */
+  flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
+  margin-top: 30px; /* space above the graph section */
+  justify-content: space-evenly ;
+}
+
+
+.volunteer_graph, .donation_graph {
+    flex: 1; /* allows both graphs to take equal space */
+    min-width: 300px; /* ensures a minimum width for responsiveness */
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all corners */
+    border-radius: 12px; /* optional: rounded corners for the container */
+    padding: 20px; /* space inside the graph container */
+    background-color: #f9f9f9; /* light background for contrast */
+}
+
+/* end of admin dashboard styles */
+
+/* start add event form styles */
+
+
+.event_list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.25); /* shadow on all corners */
+    border-radius: 12px; /* optional: rounded corners for the container */
+}
+
+
+.event_list table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.event_list th, .event_list td {
+    padding: 12px 15px;
+    border: 1px solid #9CAFAA;
+    text-align: left;
+}
+
+.event_list th:nth-child(1) { width: 40px; }    /* ID */
+.event_list th:nth-child(2) { width: 160px; }   /* Title */
+.event_list th:nth-child(3) { width: 220px; }   /* Description */
+.event_list th:nth-child(4) { width: 100px; }   /* Image */
+.event_list th:nth-child(5) { width: 120px; }   /* Start Date */
+.event_list th:nth-child(6) { width: 120px; }   /* End Date */
+.event_list th:nth-child(7) { width: 100px; }   /* Volunteers */
+.event_list th:nth-child(8) { width: 100px; }   /* Donors */
+.event_list th:nth-child(9) { width: 100px; }   
+
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-edit {
+    background: orange;
+}
+
+.btn-delete {
+    background: red;
+}
+
+
+
+
+
+
+
+
+button {
+    background-color: #96A78D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer styles */
+footer {
+    grid-area: footer;
+    background: #fff;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35);
+    border-radius: 16px;
+    padding: 18px 24px;
+    margin: 0 24px 24px 24px; /* matches the left/right margins of aside/main */
+    text-align: center;
+}

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssss", $title, $description, $imageName, $start_date, $end_date);
     $stmt->execute();
 
-    header("Location: admin_dashboard.php");
+    header("Location: event_admin.php");
     exit;
 }
 ?>

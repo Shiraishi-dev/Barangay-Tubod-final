@@ -43,8 +43,8 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
         <ul>
             <li><a href="admin.php">Dashboard</a></li>
             <li><a href="event_admin.php">Manage Events</a></li>
-            <li><a href="">Manage Volunteers</a></li>
-            <li><a href="">Manage Donations</a></li>
+            <li><a href="">Volunteers</a></li>
+            <li><a href="">Donations</a></li>
             <li><a href="reports_admin.php">News</a></li>
             <li><a href="">Settings</a></li>
             <li><a href="logout.php">Logout</a></li>

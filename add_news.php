@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "INSERT INTO news (title, content, image) VALUES ('$title', '$content', '$imageName')";
     if ($conn->query($sql)) {
-        header("Location: admin_news_dashboard.php");
+        header("Location: reports_admin.php");
         exit;
     } else {
         echo "Error: " . $conn->error;

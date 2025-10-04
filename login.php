@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'login-checker.php'; 
 include 'db_connection.php';
 ?>

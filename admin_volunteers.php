@@ -4,7 +4,7 @@ include 'db_connection.php';
 include 'login-checker.php';
 
 
-// Optional: check if logged in admin
+// Check if logged in admin
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     header("Location: login.php");
     exit;
@@ -23,14 +23,14 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="new.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=notifications" />
-    <title>Document</title>
+    <title>Admin Events Management</title>
 </head>
 <body>
     <nav>
         <img src="logo.png" alt="logo">
         <ul>
             <li><input type="text" placeholder="Search"></li>
-            <span class="material-symbols-outlined">notifications</span>    
+            <span class="material-symbols-outlined">notifications</span>    
         </ul>
     </nav>
     <aside>
@@ -52,7 +52,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
     </aside>
     <main>
         <h1>Events List</h1> <br>
-        <a href="add_event.php"><button>Add News</button></a>
+        <a href="add_event.php"><button>Add Event</button></a>
         <br>
         <div class="event_list">
             <table>
@@ -63,9 +63,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                     <th>Image</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Volunteers</th>
-                    <th>Donors</th>
-                    <th>Actions</th>
+                    <th>Volunteers</th> <th>Actions</th>
                 </tr>
                 <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
@@ -79,9 +77,6 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                         <a href="view_volunteers.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
                     </td>
                     <td>
-                        <a href="view_donors.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
-                    </td>
-                    <td>
                         <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="btn btn-edit">Edit</a>
                         <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="btn btn-delete" onclick="return confirm('Delete this event?')">Delete</a>
                     </td>
@@ -93,3 +88,4 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
     <footer>wowwers</footer>
 </body>
 </html>
+<?php $conn->close(); ?>

@@ -71,7 +71,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['description']; ?></td>
+                    <td><?php echo substr($row['description'], 0, 30) . '...'; ?></td>
                     <td><img src="uploads/<?php echo $row['image']; ?>" width="100"></td>
                     <td><?php echo $row['start_date']; ?></td>
                     <td><?php echo $row['end_date']; ?></td>

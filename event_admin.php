@@ -52,7 +52,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
     </aside>
     <main>
         <h1>Events List</h1> <br>
-        <a href="add_event.php"><button>Add News</button></a>
+        <a href="add_event.php"><button>Add Event</button></a>
         <br>
         <div class="event_list">
             <table>
@@ -63,8 +63,6 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                     <th>Image</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Volunteers</th>
-                    <th>Donors</th>
                     <th>Actions</th>
                 </tr>
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -75,12 +73,6 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                     <td><img src="uploads/<?php echo $row['image']; ?>" width="100"></td>
                     <td><?php echo $row['start_date']; ?></td>
                     <td><?php echo $row['end_date']; ?></td>
-                    <td>
-                        <a href="view_volunteers.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
-                    </td>
-                    <td>
-                        <a href="view_donors.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
-                    </td>
                     <td>
                         <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="btn btn-edit">Edit</a>
                         <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="btn btn-delete" onclick="return confirm('Delete this event?')">Delete</a>

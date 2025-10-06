@@ -16,6 +16,12 @@ if (!$event_id) {
     exit;
 }
 
+$adminName = htmlspecialchars($_SESSION['first_name'] . " " . $_SESSION['last_name']);
+$Idnumber = htmlspecialchars($_SESSION['id_number']);
+
+// Fetch all events
+$result = $conn->query("SELECT * FROM events ORDER BY id DESC");
+
 // 2. Fetch the event title for display purposes (using prepared statement)
 $event_stmt = $conn->prepare("SELECT title FROM events WHERE id = ?");
 $event_stmt->bind_param("i", $event_id);
@@ -31,8 +37,9 @@ $sql = "
     SELECT
         ui.first_name,
         ui.last_name,
-        ui.id_number,
+        ui.user_id,
         ve.address,
+        ve.volunteer_event_id,
         ve.phone_number,
         ve.reason,
         ve.joined_at
@@ -56,17 +63,42 @@ $volunteers_result = $volunteer_stmt->get_result();
     <link rel="stylesheet" href="new.css"> <title>Volunteers for <?php echo $event_title; ?></title>
 </head>
 <body>
+    <nav>
+        <img src="logo.png" alt="logo">
+        <ul>
+            <li><input type="text" placeholder="Search"></li>
+            <span class="material-symbols-outlined">notifications</span>    
+        </ul>
+    </nav>
+    <aside>
+        <div>
+            <img src="prof.png" alt="profile picture">
+            <h2><?php echo $adminName; ?></h2>
+            <p><?php echo $Idnumber ; ?></p>
+            <p>Administrator</p>
+        </div>
+        <ul>
+            <li><a href="admin.php">Dashboard</a></li>
+            <li><a href="event_admin.php">Manage Events</a></li>
+            <li><a href="admin_volunteers.php">Volunteers</a></li>
+            <li><a href="">Donations</a></li>
+            <li><a href="reports_admin.php">News</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </aside>
     <main>
-        <h1>Volunteers for Event: <?php echo $event_title; ?></h1>
-        <a href="event_admin.php"><button>← Back to Events List</button></a>
+        <h1>Volunteers for Event: <?php echo $event_title; ?></h1> <br>
+        <a href="admin_volunteers.php"><button>← Back to Events List</button></a>
         <br><br>
 
         <div class="volunteer_details">
             <?php if ($volunteers_result->num_rows > 0): ?>
                 <table>
                     <tr>
-                        <th>Name</th>
+                        <th>Volunteer Event ID</th>
                         <th>ID Number</th>
+                        <th>Name</th>
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th>Reason for Joining</th>
@@ -74,8 +106,9 @@ $volunteers_result = $volunteer_stmt->get_result();
                     </tr>
                     <?php while ($volunteer = $volunteers_result->fetch_assoc()): ?>
                     <tr>
+                        <td><?php echo htmlspecialchars($volunteer['volunteer_event_id']); ?></td>
+                        <td><?php echo htmlspecialchars($volunteer['user_id']); ?></td>
                         <td><?php echo htmlspecialchars($volunteer['first_name'] . ' ' . $volunteer['last_name']); ?></td>
-                        <td><?php echo htmlspecialchars($volunteer['id_number']); ?></td>
                         <td><?php echo htmlspecialchars($volunteer['address']); ?></td>
                         <td><?php echo htmlspecialchars($volunteer['phone_number'] ?? 'N/A'); ?></td>
                         <td><?php echo htmlspecialchars($volunteer['reason'] ?? 'N/A'); ?></td>

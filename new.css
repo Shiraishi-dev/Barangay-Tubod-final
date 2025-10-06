@@ -141,7 +141,7 @@ main {
 .dashboard_reports > div h3 {
     font-size: 30px; /* larger font size for the number */
     margin: 10px 0 0 0;
-    color:#6D94C5;
+    color:#000000;
     font-weight: lighter;
 }
 
@@ -164,6 +164,8 @@ main {
     background-color: #f9f9f9; /* light background for contrast */
 }
 
+
+
 /* end of admin dashboard styles */
 
 /* start add event form styles */
@@ -181,8 +183,17 @@ main {
 .event_list table {
     width: 100%;
     border-collapse: collapse;
-
+    margin-top: 20px;
+    border-radius: 12px;
 }
+
+.event_list table th {
+    background-color: #96A78D;
+    color: rgb(255, 255, 255);
+}
+
+
+
 .event_list th, .event_list td {
     padding: 12px 15px;
     border: 1px solid #9CAFAA;
@@ -197,7 +208,7 @@ table a {
 }
 
 .btn-view {
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .btn {
@@ -205,22 +216,23 @@ table a {
     border: none;
     cursor: pointer;
     border-radius: 4px;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .btn-edit {
-    background: black;
+    background: #F2C94C;
+    color: white;
 }
-
 .btn-delete {
-    background: red;
+    background: #EB5757;
+    color: white;
+
 }
 
-
-
-
-
-
+.btn-view {
+    background: #96A78D;
+    color: white;
+}
 
 
 button {
@@ -235,9 +247,25 @@ button {
 
 
 
+/* view volunteers/donors page styles */
 
 
+.volunteer_details table tr th, .volunteer_details table tr td {
+    padding: 12px 15px;
+    border: 1px solid #9CAFAA;
+    text-align: left;
+}
 
+.volunteer_details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 12px; /* optional: rounded corners for the container */
+}
+.volunteer_details table th {
+    background-color: #96A78D;
+    color: #EEEFE0;
+}
 
 
 

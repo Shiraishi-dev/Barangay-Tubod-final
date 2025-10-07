@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments</title>
 
-    <!-- ✅ Link your CSS file here -->
     <link rel="stylesheet" href="new.css">
 </head>
 <body>

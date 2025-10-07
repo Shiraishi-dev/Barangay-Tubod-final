@@ -1,17 +1,17 @@
 <?php
 session_start();
-
-// Include database connection
 include 'db_connection.php';
 
-// Query the events
+// Query events
 $sql = "SELECT * FROM events ORDER BY id DESC";
 $result = $conn->query($sql);
 
-
-// Query the news
+// Query news
 $sql_news = "SELECT * FROM news ORDER BY created_at DESC";
 $result_news = $conn->query($sql_news);
+
+// Check if user is logged in
+$isLoggedIn = isset($_SESSION['user_id']); // Change to your session variable
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ $result_news = $conn->query($sql_news);
         <h1>Available Events this month</h1>
     </div>
 
-    <div class="events">
+     <div class="events">
         <div class="event-container">
             <?php if ($result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
@@ -82,8 +82,16 @@ $result_news = $conn->query($sql_news);
                         <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                         <h3><?= htmlspecialchars($row['title']) ?></h3>
                         <p><?= htmlspecialchars($row['description']) ?></p>
-                        <button>JOIN NOW</a></button>
-                        <button>DONATE NOW</a></button>
+
+                        <?php if ($isLoggedIn): ?>
+                            <!-- If logged in, redirect to join page -->
+                            <button onclick="window.location.href='join_event.php?id=<?= $row['id'] ?>'">JOIN NOW</button>
+                        <?php else: ?>
+                            <!-- If not logged in, show modal on click -->
+                            <button class="join-btn">JOIN NOW</button>
+                        <?php endif; ?>
+
+                        <button>DONATE NOW</button>
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
@@ -115,6 +123,37 @@ $result_news = $conn->query($sql_news);
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h3>You need to login first before joining an event</h3>
+            <button class="close-btn secondary" id="closeModalBtn">Close</button>
+            <button class="close-btn" onclick="window.location.href='login.php'">Go to Login</button>
+        </div>
+    </div>
+
+    <script>
+        // Show modal only when JOIN button in event section is clicked
+        document.querySelectorAll('.join-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.getElementById('loginModal').style.display = 'block';
+            });
+        });
+
+        // Close modal button
+        document.getElementById('closeModalBtn').addEventListener('click', function () {
+            document.getElementById('loginModal').style.display = 'none';
+        });
+
+        // Optional: close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 
 <?php $conn->close(); ?>
 </body>

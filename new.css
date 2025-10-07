@@ -313,6 +313,8 @@ button {
     table-layout: fixed; /* makes columns respect set widths */
 }
 
+
+
 .appointment_table th, .appointment_table td {
     padding: 12px 15px;
     border: 1px solid #9CAFAA;

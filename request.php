@@ -8,6 +8,9 @@
         <td>Proposal Event</td>
         <td>Appointment Date</td>
         <td>Date Request Appointment</td>
+        <td>Mobile Number</td>
+        <td>Gmail</td>
+        <td>Status</td>
         <td>Actions</td>
     </tr>
     <tr>
@@ -16,9 +19,12 @@
         <td>Blood Donation Drive</td>
         <td>2024-07-15</td>
         <td>2024-06-20</td>
+        <td>+1234567890</td>
+        <td>dsadasdsa@gmail.com</td>
+        <td>Pending</td>
         <td>
             <button class="action-btn">Accept</button>
-            <button class="action-btn delete-btn">Delete</button>
+            <button class="action-btn delete-btn">Decline</button>
         </td>
     </tr>
 </table>

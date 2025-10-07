@@ -161,6 +161,17 @@ $current_user_email = $_SESSION['email'] ?? ''; // Assuming you store email in s
                     <input type="text" id="phone_number" name="phone_number">
                 </div>
                 <div class="form-group">
+                    <label for="Age">Age (Required Age 18 above)</label>
+                    <input type="number" id="age" name="Age" required>
+                </div>
+                <div class="form-group">
+                    <label for="Sex">Sex</label>
+                    <select id="sex" name="Sex">
+                        <option value="Male">Male</option>
+                        <option value="Male">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="reason">Reason for Joining (Optional)</label>
                     <textarea id="reason" name="reason" rows="3"></textarea>
                 </div>

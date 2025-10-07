@@ -14,21 +14,23 @@ body {
     "sidebar footer";
 }
 
-
-/* navbar styles */
-
+/* =========================
+   Navbar Styles
+   ========================= */
 nav {
     grid-area: navbar;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #ffffff;
+    padding: 0 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav img {
     height: 50px;
     margin: 10px;
 }
-
 
 nav ul {
     list-style: none;
@@ -40,15 +42,15 @@ nav ul {
     padding: 0 10px;
 }
 
-
-/* sidebar styles */
-
+/* =========================
+   Sidebar Styles
+   ========================= */
 aside {
     grid-area: sidebar;
-    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all sides */
-    padding: 32px 16px;         /* Add space inside the sidebar */
-    background: #fff;           /* White background for contrast */
-    border-radius: 16px;        /* Rounded corners */
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35);
+    padding: 32px 16px;
+    background: #fff;
+    border-radius: 16px;
     margin: 24px 0 24px 24px;
 }
 
@@ -61,12 +63,10 @@ aside img {
     border-radius: 50%;
 }
 
-
 aside div {
     text-align: center;
     margin-top: 50px;
 }
-
 
 aside div h2 {
     margin: 10px 0 5px 0;
@@ -76,12 +76,10 @@ aside div p {
     margin-top: -5px;
 }
 
-
 aside ul {
     list-style: none;
     padding: 0;
     margin-top: 30px;
-    align-items: left;
     display: flex;
     flex-direction: column;
     margin-left: 30px;
@@ -97,32 +95,33 @@ aside ul li a {
     color: black;
 }
 
-/* main content styles */
-
-
+/* =========================
+   Main Content Styles
+   ========================= */
 main {
     grid-area: main;
-    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all sides */
-    padding: 32px 18px;         /* Add space inside the main content */
-    background: #fff;           /* White background for contrast */
-    border-radius: 16px;        /* Rounded corners */
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35);
+    padding: 32px 18px;
+    background: #fff;
+    border-radius: 16px;
     margin: 24px 24px 24px 15px;
 }
 
-/* start of admin dashboard styles */
-
+/* =========================
+   Dashboard Report Cards
+   ========================= */
 .dashboard_reports {
     display: flex;
-    gap: 5px; /* optional: adds spacing between items */
-    justify-content: space-around; /* or use space-between, center, etc. */
-    align-items: center; /* aligns items vertically */
-    border-radius: 12px; /* optional: rounded corners for the container */
+    gap: 5px;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 12px;
 }
 
 .dashboard_reports > div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;    /* aligns children (like <p>) to the left */
+    align-items: flex-start;
     padding: 50px 150px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -130,55 +129,90 @@ main {
 }
 
 .dashboard_reports > div p {
-    margin: 5px 0; /* adds space between the <p> elements */
-    font-size: 18px; /* optional: increases font size for better readability */
+    margin: 5px 0;
+    font-size: 18px;
     text-align: left;
     color: gray;
     opacity: 0.8;
 }
 
-
 .dashboard_reports > div h3 {
-    font-size: 30px; /* larger font size for the number */
+    font-size: 30px;
     margin: 10px 0 0 0;
-    color:#000000;
+    color: #000000;
     font-weight: lighter;
 }
 
-
-.graph_reports {
-  display: flex;
-  gap: 20px; /* optional spacing between items */
-  flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
-  margin-top: 30px; /* space above the graph section */
-  justify-content: space-evenly ;
+/* =========================
+   Appointment Tabs Section
+   ========================= */
+.appointment_btn {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-
-.volunteer_graph, .donation_graph {
-    flex: 1; /* allows both graphs to take equal space */
-    min-width: 300px; /* ensures a minimum width for responsiveness */
-    box-shadow: 0 0 24px 0 rgba(0,0,0,0.35); /* shadow on all corners */
-    border-radius: 12px; /* optional: rounded corners for the container */
-    padding: 20px; /* space inside the graph container */
-    background-color: #f9f9f9; /* light background for contrast */
+.appointment_btn button {
+    background-color: transparent;
+    color: #555;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+.appointment_btn button:hover {
+    background-color: #e5e5e5;
+    color: #333;
+}
 
+.appointment_btn button.active {
+    background-color: #96A78D;
+    color: white;
+    font-weight: 500;
+}
 
-/* end of admin dashboard styles */
+.appointment_section {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.3s ease-in-out;
+    margin-top: 10px;
+}
 
-/* start add event form styles */
+.appointment_section p {
+    font-size: 15px;
+    color: #555;
+}
 
+#request {
+    display: block; /* Show the Request section by default */
+}
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Event / Table Styling
+   ========================= */
 .event_list {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    box-shadow: 0 0 24px 0 rgba(0,0,0,0.25); /* shadow on all corners */
-    border-radius: 12px; /* optional: rounded corners for the container */
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.25);
+    border-radius: 12px;
 }
-
 
 .event_list table {
     width: 100%;
@@ -192,14 +226,11 @@ main {
     color: rgb(255, 255, 255);
 }
 
-
-
 .event_list th, .event_list td {
     padding: 12px 15px;
     border: 1px solid #9CAFAA;
     text-align: left;
 }
-
 
 table a {
     text-decoration: none;
@@ -223,17 +254,16 @@ table a {
     background: #F2C94C;
     color: white;
 }
+
 .btn-delete {
     background: #EB5757;
     color: white;
-
 }
 
 .btn-view {
     background: #96A78D;
     color: white;
 }
-
 
 button {
     background-color: #96A78D;
@@ -245,12 +275,11 @@ button {
     font-size: 16px;
 }
 
-
-
-/* view volunteers/donors page styles */
-
-
-.volunteer_details table tr th, .volunteer_details table tr td {
+/* =========================
+   Volunteer / Donor Tables
+   ========================= */
+.volunteer_details table tr th, 
+.volunteer_details table tr td {
     padding: 12px 15px;
     border: 1px solid #9CAFAA;
     text-align: left;
@@ -260,26 +289,40 @@ button {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    border-radius: 12px; /* optional: rounded corners for the container */
+    border-radius: 12px;
 }
+
 .volunteer_details table th {
     background-color: #96A78D;
     color: #EEEFE0;
 }
 
 
+/* =========================
+   appointment table styles
+   ========================= */
 
+.appointment_table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.25);
+    border-radius: 12px;
+    overflow-x: auto; /* allows horizontal scroll if needed */
+    table-layout: fixed; /* makes columns respect set widths */
+}
 
+.appointment_table th, .appointment_table td {
+    padding: 12px 15px;
+    border: 1px solid #9CAFAA;
+    text-align: left;
+}
 
-
-
-
-
-
-
-
-
-
+.appointment_table th {
+    background-color: #96A78D;
+    color: rgb(255, 255, 255);
+}
 
 
 

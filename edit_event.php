@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssssi", $title, $description, $event['image'], $start_date, $end_date, $event_id);
     $stmt->execute();
 
-    header("Location: admin_event_dashboard.php");
+    header("Location: event_admin.php");
     exit;
 }
 ?>

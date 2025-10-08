@@ -51,8 +51,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
         </ul>
     </aside>
     <main>
-        <h1>Events List</h1> <br>
-        <a href="add_event.php"><button>Add Event</button></a>
+        <h1>Events Volunteer List</h1> <br>
         <br>
         <div class="event_list">
             <table>
@@ -63,7 +62,7 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                     <th>Image</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Volunteers</th> <th>Actions</th>
+                    <th>Volunteers</th>
                 </tr>
                 <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
@@ -75,10 +74,6 @@ $result = $conn->query("SELECT * FROM events ORDER BY id DESC");
                     <td><?php echo $row['end_date']; ?></td>
                     <td>
                         <a href="view_volunteers.php?event_id=<?php echo $row['id']; ?>" class="btn btn-view">VIEW</a>
-                    </td>
-                    <td>
-                        <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="btn btn-edit">Edit</a>
-                        <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="btn btn-delete" onclick="return confirm('Delete this event?')">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

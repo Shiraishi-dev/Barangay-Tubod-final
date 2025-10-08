@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $event_id);
     $stmt->execute();
 
-    header("Location: admin_event_dashboard.php");
+    header("Location: event_admin.php");
     exit;
 }
 ?>
